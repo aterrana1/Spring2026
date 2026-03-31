@@ -1,0 +1,28 @@
+For the Minimization, I used the Insane script to build my bilayer + pfda system, then I added 1 NA.  
+
+Building the Bilayer system with Insane: 
+
+insane -o system.gro -f pf10c_em.gro -l DOPC -sol W -salt 0 -p topol.top
+
+The -f option specifies the input structure for the pfda. -l specifies which phospholipid to add to the 
+membrane. -sol specifies the solvent. -salt specifies whether or not to add NA and CL ions; if the 
+parameter is 0, then ions will be added to make the system neutral, whereas a positive number will indicate
+molarity. For example, -salt 0.15 will add NA and CL atoms to set the salt concentration = 0.15.
+
+
+Adding 1 NA:
+
+For some reason, using -salt 0 in the insane command does not neutralize the -1 charge on the pfda. So I 
+manually added one sodium, NA, ion to the system. 
+
+gmx grompp -f inputs/min.mdp -c system.gro -p topology/topol.top -o min.tpr
+gmx genion -s min.tpr -p topology/topol.top -o finalsystem.gro -pname NA -neutral
+
+
+Minimization:
+
+After adding 1 NA, we now have our final system, with pfda, DOPC, W, and NA. I now did an energy 
+minimization using the mdp file min.mdp.
+
+gmx grompp -f inputs/min.mdp -c finalsystem.gro -p topology/topol.top -o finalsystem.tpr
+gmx mdrun -s finalsystem.tpr -v -deffnm finalsystem_min
