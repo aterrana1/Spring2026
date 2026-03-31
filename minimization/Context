@@ -2,7 +2,7 @@ For the Minimization, I used the Insane script to build my bilayer + pfda system
 
 Building the Bilayer system with Insane: 
 
-insane -o system.gro -f pf10c_em.gro -l DOPC -sol W -salt 0 -p topol.top
+insane -o system.gro -f pf10c_em.gro -l DOPC -sol W -salt 0 -x 20 -y 10 -z 10 -p topol.top
 
 The -f option specifies the input structure for the pfda. -l specifies which phospholipid to add to the 
 membrane. -sol specifies the solvent. -salt specifies whether or not to add NA and CL ions; if the 
