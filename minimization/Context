@@ -26,3 +26,7 @@ minimization using the mdp file min.mdp.
 
 gmx grompp -f inputs/min.mdp -c finalsystem.gro -p topology/topol.top -o finalsystem.tpr
 gmx mdrun -s finalsystem.tpr -v -deffnm finalsystem_min
+
+You should get two files called finalsystem_min.gro (which is the structure of the minimized system) and 
+finalsystem_min.log which has the output results of the energy minimization. The next step is to perform
+an equilibration. 
