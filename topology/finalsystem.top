@@ -1,0 +1,19 @@
+#include "martini_v3.0.0.itp"
+#include "martini_v3.0.0_ffbonded_v2.itp"
+#include "martini_v3.0.0_phospholipids_PC_v2.itp"
+#include "martini_v3.0.0_solvents_v1.itp"
+#include "PF10C.itp"
+#include "martini_v3.0.0_ions_v1.itp"
+
+[ system ]
+; name
+Protein in INSANE! Membrane UpperLeaflet>DOPC=1 LowerLeaflet>DOPC=1
+
+
+[ molecules ]
+; name  number
+PF10C          1
+DOPC           330 ; Defined in the packaged 'lipids.dat'.
+DOPC           338 ; Defined in the packaged 'lipids.dat'.
+W              9531
+NA             1
