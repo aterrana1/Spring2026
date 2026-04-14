@@ -1,0 +1,7 @@
+insane -o system.gro -f 3pf10c_em/3pf10c_em.gro -l DOPC -sol W -salt 0 -x 20 -y 10 -z 10 -p topol.top
+
+gmx grompp -f ../inputs/min_strict_steep.mdp -c system.gro -p ../topology/0.5topol.top -o min.tpr
+
+gmx genion -s min.tpr -p ../topology/0.5topol.top -o finalsystem.gro -pname NA -neutral
+
+gmx grompp -f ../inputs/min_strict_cg.mdp -c finalsystem.gro -p ../topology/0.5topol.top -o finalsystem.tpr
