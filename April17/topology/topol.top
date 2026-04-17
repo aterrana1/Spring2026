@@ -1,0 +1,20 @@
+#include "martini_v3.0.0.itp"
+#include "martini_v3.0.0_ffbonded_v2.itp"
+#include "martini_v3.0.0_phospholipids_PC_v2.itp"
+#include "martini_v3.0.0_solvents_v1.itp"
+#include "PF10C.itp"
+#include "martini_v3.0.0_ions_v1.itp"
+
+[ system ]
+; name
+INSANE! Membrane UpperLeaflet>DOPC:PF10C=99.0:1.0 LowerLeaflet>DOPC:PF10C=99.0:1.0
+
+
+[ molecules ]
+; name  number
+DOPC           334
+PF10C            3
+DOPC           334
+PF10C            3
+W             8885
+NA               6
